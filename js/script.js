@@ -14,18 +14,25 @@ $(document).ready(function(){
        		success: function (response) {
         				alert(response);
        				},
-       		beforeSend: function (xhr){
-       			xhr.upload.addEventListener('progress',renderProgresBar,false);
+       		xhr: function (){
+            var xhr = new XMLHttpRequest();
+            if(xhr.upload){
+       				xhr.upload.addEventListener('progress',renderProgressBar, true);
+
+       			} else {
+       				console.log("xhr.upload not readable");
+       			}
+            return xhr;
        		}
 
    		});
    		return false;
  	});
 
-	function renderProgressBae(e){
+	function renderProgressBar(e){
 		if(e.lengthComputable){
-			var percent = e.loaded/e.total;
-			
+			var percent = e.loaded/e.total * 100;
+			$('#progress-bar').html('<p> '+percent+' % </p>');
 		}
 	}
 
