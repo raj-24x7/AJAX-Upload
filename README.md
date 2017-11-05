@@ -4,7 +4,8 @@ Small script to and html file to upload file to webserver asynchronously with AJ
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Download using git clone or the zip from Github. Place in root of webserver and test.
+The code can be easily incorporated in any project. 
 
 ### Prerequisites
 
@@ -24,7 +25,15 @@ $target_file = $target_dir . $path . basename($_FILES["fileToUpload"]["name"]);
 ```
 Any constraints on file size or type can be set up through upload.php
 
-In script.js the progressRenderer function is the action taken when the progress changes. Make your action for progress change here.
-Like updating a progress bar etc.
+In script.js the progressRenderer function is the action taken when the progress changes. Make your action for progress change here. Like updating a progress bar etc.
 
+## For Using in other Projects
+Just copy the files upload.php and script.js
 
+Update upload.php for the path to store files
+
+Include script.js from its location in index.php
+
+The form part of index.php is to be included where  ever the facility is to be provided
+
+If you do not use a jQuery file copy the file used here or just use a distribution repo. 
